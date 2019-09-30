@@ -11,7 +11,7 @@ freq = 24*60//30*1
 # freq = 8
 decomposition = seasonal_decompose(ts.values, model="additive", freq=freq) # 季节分解
 
-# 直接舍弃NA值
+#
 trend = pd.DataFrame(decomposition.trend).dropna().values
 seasonal = pd.DataFrame(decomposition.seasonal).dropna().values
 residual = pd.DataFrame(decomposition.resid).dropna().values
@@ -29,7 +29,7 @@ resRange = np.max(residual)-np.min(residual)
 trendRange = np.max(trend)-np.min(trend)
 totalRange = np.max(data)-np.min(data)
 
-# 作图观察
+# 
 fig = plt.figure()
 ax1 = fig.add_subplot(411)
 ax2 = fig.add_subplot(412)

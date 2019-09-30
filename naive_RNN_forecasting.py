@@ -13,11 +13,11 @@ import pandas as pd
 def RNN_forecasting(dataset, lookBack, lr, inputDim=1, hiddenNum=64, outputDim=1, unit="GRU", epoch=20,
                     batchSize=30, varFlag=False, minLen=15, maxLen=30, step=5):
 
-    # 归一化数据
+    #
     scaler = MinMaxScaler(feature_range=(0, 1))
     dataset = scaler.fit_transform(dataset)
 
-    # 分割序列为样本,并整理成RNN的输入形式
+    # 
     train, test = util.divideTrainTest(dataset)
 
     trainX = None
@@ -97,5 +97,3 @@ if __name__ == "__main__":
 
     trainPred, testPred, mae, mrse, smape = RNN_forecasting(data, lookBack=lag, epoch=epoch, batchSize=batch_size,
                                             varFlag=False, minLen=24, maxLen=48, step=8, unit=unit, lr=lr)
-
-    
